@@ -1,0 +1,87 @@
+{% extends "clinicaapp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="appointment-form">
+    <form action="{% url 'cita' %}" method="post">
+        {% csrf_token %}
+        <div class="row">
+            {% if alert_success %}
+                <script>alert("El Dentista enviara confirmacion a tu correo electronico")</script>
+            {% endif %}
+            <div class="col-md-6">
+                <div class="form-group mb-30">
+                    <label for="your-name" class="text-white">Nombre</label>
+                    <input type="text" name="your-name" class="form-control" placeholder="Your Name" value="{{user.username}}" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group mb-30">
+                    <label for="your-phone" class="text-white">Teléfono</label>
+                    <input type="text" name="your-phone" class="form-control" placeholder="Your Phone" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group mb-30">
+                    <label for="your-email" class="text-white">Correo</label>
+                    <input type="email" name="your-email" class="form-control" placeholder="Your Email" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group mb-30">
+                    <label for="your-addres" class="text-white">Dirección</label>
+                    <input type="text" name="your-addres" class="form-control" placeholder="Your Addres" required>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group mb-30">
+                    <label for="your-scheduler" class="text-white">Hora</label>
+                    <select name="your-scheduler" class="form-control">
+                        <option value="9 AM to 10 AM Lunes"> 9 AM to 10 AM Lunes </option>
+                        <option value="10 AM to 11 AM Lunes"> 10 AM to 11 AM Lunes</option>
+                        <option value="11 AM to 12 C Lunes"> 11 AM to 12 PM Lunes</option>
+                        <option value="12 PM to 13 PM Lunes"> 12 PM to 13 PM Lunes</option>
+                        <option value="13 PM to 14 PM Lunes"> 13 PM to 14 PM Lunes</option>
+                        <option value="9 AM to 10 AM Martes"> 9 AM to 10 AM Martes</option>
+                        <option value="10 AM to 11 AM Martes"> 10 AM to 11 AM Martes</option>
+                        <option value="11 AM to 12 C Martes"> 11 AM to 12 PM Martes</option>
+                        <option value="12 PM to 13 PM Martes"> 12 PM to 13 PM Martes</option>
+                        <option value="13 PM to 14 PM Martes"> 13 PM to 14 PM Martes</option>
+                        <option value="9 AM to 10 AM Miercoles"> 9 AM to 10 AM Miercoles</option>
+                        <option value="10 AM to 11 AM Miercoles"> 10 AM to 11 AM Miercoles</option>
+                        <option value="11 AM to 12 C Miercoles"> 11 AM to 12 PM Miercoles</option>
+                        <option value="12 PM to 13 PM Miercoles"> 12 PM to 13 PM Miercoles</option>
+                        <option value="13 PM to 14 PM Miercoles"> 13 PM to 14 PM Miercoles</option>
+                        <option value="9 AM to 10 AM Jueves"> 9 AM to 10 AM Jueves</option>
+                        <option value="10 AM to 11 AM Jueves"> 10 AM to 11 AM Jueves</option>
+                        <option value="11 AM to 12 C Jueves"> 11 AM to 12 PM Jueves</option>
+                        <option value="12 PM to 13 PM Jueves"> 12 PM to 13 PM Jueves</option>
+                        <option value="13 PM to 14 PM Jueves"> 13 PM to 14 PM Jueves</option>
+                        <option value="9 AM to 10 AM Viernes"> 9 AM to 10 AM Viernes</option>
+                        <option value="10 AM to 11 AM Viernes"> 10 AM to 11 AM Viernes</option>
+                        <option value="11 AM to 12 C Viernes"> 11 AM to 12 PM Viernes</option>
+                        <option value="12 PM to 13 PM Viernes"> 12 PM to 13 PM Viernes</option>
+                        <option value="13 PM to 14 PM Viernes"> 13 PM to 14 PM Viernes</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group mb-30">
+                    <label for="your-message" class="text-white">Comentarios</label>
+                    <textarea name="your-message" class="form-control" placeholder="Your Message"></textarea>
+                </div>
+            </div>
+            <div class="col-12 text-center">
+                <button class="btn dentro-btn">
+                    Booking Now
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+{% endblock %}
